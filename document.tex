@@ -1,4 +1,5 @@
-\documentclass[a4paper,12pt]{ctexbook}
+\documentclass[a4paper,12pt]{memoir}
+\usepackage[heading=true,scheme=chinese]{ctex}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage[fallback]{xeCJK}
@@ -11,6 +12,7 @@
 \usepackage{bookmark}
 \usepackage{framed}
 \usepackage{xargs}
+\usepackage{afterpage}
 
 \newcommand{\attrib}[1]{%
 	\nopagebreak{\raggedleft\footnotesize #1\par}}
@@ -27,26 +29,64 @@
 	\MakeFramed{\advance\hsize-\width \FrameRestore}
 }%
 {\endMakeFramed}
-\newenvironment{quoted}{\begin{leftbar}\begin{quote}}{\end{quote}\end{leftbar}}
+\newenvironment{quoted}{\begin{leftbar}\begin{quote}\itshape}{\end{quote}\end{leftbar}}
+
+\renewenvironment{quote}
+{\list{}{\rightmargin\leftmargin}%
+	\item\relax\itshape}
+{\endlist}
+
+\pretitle{\begin{flushleft}\HUGE\bfseries}
+	\posttitle{\par\end{flushleft}\vskip1em}
+\predate{\begin{flushleft}\large\scshape}
+	\date{}
+	\postdate{\end{flushleft}}
+\preauthor{\begin{flushleft}\large}
+	\postauthor{\end{flushleft}}
+
+\newcommand{\toptitle}[1]{%
+	\gdef\topTTL{#1}}
+\newcommand{\topTTL}{}
+\renewcommand{\maketitlehooka}{%
+	\begin{flushleft}
+		\LARGE\sffamily \topTTL
+\end{flushleft}}
+
+\newcommand{\published}[1]{%
+	\gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehookd}{%
+	\begin{flushleft} \puB \end{flushleft}}
+\newcommand{\translator}[1]{\gdef\titleTRANS{#1}}
+
+
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
 
 \begin{document}
-	\includepdf{cantonia-history-cover.png}	
+	\includepdf{cantonia-history-cover.png}
+	\blankpage
 	
+
 	\author{執經生}
 	\title{南粵史}
 	\date{2016}
-	
-	
+	\pagenumbering{gobble}
 	\maketitle
 	
-	
+	\pagenumbering{roman}
 	\include{foreword.tex}
 	\include{typesetting_foreword.tex}
 	
+	\pagenumbering{gobble}
 	\tableofcontents
 	
+	\pagenumbering{arabic}
 	\mainmatter
-	
 	\part{上编·古代史（远古—1513） }
 	\include{chap01.tex}
 	
