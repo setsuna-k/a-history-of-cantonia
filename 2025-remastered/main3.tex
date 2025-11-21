@@ -1,0 +1,117 @@
+\documentclass[a5paper]{memoir}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+% \setCJKmainfont[ItalicFont=TW-Kai]{Noto Serif CJK HK}
+\setCJKmainfont{Noto Serif CJK HK}
+\setCJKmainfont{Noto Serif CJK HK}
+% \setCJKmainfont{Source Han Serif HC}
+% \setCJKsansfont{Source Han Sans HC}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{epigraph}
+\usepackage{framed}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  bookmarksopen=true
+}
+
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhead[E]{}
+\fancyhead[EL]{\textit{《南粤史》}}
+\fancyhead[O]{}
+\fancyhead[OR]{}
+
+ 
+\setlength\epigraphwidth{.8\textwidth}
+
+\usepackage{color,graphicx}
+\definecolor{ared}{rgb}{.647,.129,.149}
+\renewcommand\colorchapnum{\color{ared}}
+\renewcommand\colorchaptitle{\color{ared}}
+\chapterstyle{pedersen}
+
+\setlength{\parskip}{1em}
+
+
+\newcounter{daggerfootnote}
+\newcommand*{\daggerfootnote}[1]{%
+  \renewcommand*{\thefootnote}{\fnsymbol{footnote}}%
+  \footnote[2]{#1}%
+  \renewcommand*{\thefootnote}{\arabic{footnote}}%
+}
+
+
+\begin{document}
+
+% \includepdf{cover.png}
+\includepdf{ahoc-2025-remaster-cover-vol3.png}
+
+\frontmatter
+\pagenumbering{gobble}
+
+\begin{titlingpage}
+	
+	\let\cleardoublepage\clearpage
+	\raggedleft
+	\vspace*{\baselineskip}
+	{\Huge\itshape 南粤史}\\[\baselineskip]
+	{\large\itshape 下篇・现代史（1911—今）}\\[0.2\textheight]
+	{\Large 执经生}\par
+	\vfill
+	{\Large \sffamily 激流學社\\ \large Fluxus Society Cantonia}
+	\vspace*{\baselineskip}
+\end{titlingpage}
+\begin{titlingpage}
+	{\footnotesize 
+	\noindent\textcopyright \; 执经生 \;版权所有
+
+\vspace*{\baselineskip}
+
+
+\vspace*{3\baselineskip}
+\noindent
+頁面排版：激流學社
+
+\vspace*{3\baselineskip}
+\noindent 激流學社・愛爾蘭都柏林・二〇二五\\
+\url{https://fluxus-cantonia.org}
+
+}
+\end{titlingpage}
+\pagenumbering{roman}
+
+\tableofcontents
+ 
+\mainmatter
+
+
+	\include{chap19.tex}
+	
+	\include{chap20.tex}
+	
+	\include{chap21.tex}
+	
+	\include{chap22.tex}
+	
+	\appendix
+	\include{appx-timeline.tex}
+	
+	\include{appx-transcript.tex}
+	
+	\include{appx-japgenksank.tex}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\includepdf{ahoc-2025-remaster-back-cover.png}
+
+\end{document}
+%%% Local Variables:
+%%% mode: XeTeX
+%%% TeX-master: t
+%%% TeX-master: t
+%%% TeX-master: t
+%%% End:
